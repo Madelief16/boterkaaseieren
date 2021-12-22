@@ -14,8 +14,8 @@ class MyAgent(MLAgent):
         return reward
     
 random.seed(1)
+my_agent = MyAgent(alpha=0.8, epsilon=0.2)
    
-my_agent = MyAgent()
 random_agent = RandomAgent()
 #train(my_agent, 3000)
 #save(my_agent, 'MyAgent_3000')
