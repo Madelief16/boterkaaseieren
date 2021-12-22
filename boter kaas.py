@@ -22,3 +22,12 @@ my_agent = load('MyAgent_3000')
 my_agent.learning = False
  
 start(player_x=my_agent)
+
+winners = defaultdict(int)  
+validation_agent = RandomAgent()
+for i in range(100):
+    winner = start(player_x=my_agent, player_o=validation_agent, ui=HEADLESS)
+    winners[winner] += 1
+winners[PLAYER_X] = winners[PLAYER_X] / 100
+winners[PLAYER_O] = winners[PLAYER_O] / 100
+winners[None] = winners[None] / 100
