@@ -13,12 +13,19 @@ class MyAgent(MLAgent):
             reward = 0
         return reward
     
+print("1: 2 spelers \n 2: speel tegen een getrainde computer \n 3: speel tegen een getrainde AI \n 4: train een AI en kijk hoe goed die het doet \n Kies wat je wilt spelen:")
+choice = input()
+    
 random.seed(1)
 my_agent = MyAgent()
    
 random_agent = RandomAgent()
-#train(my_agent, 3000)
-#save(my_agent, 'MyAgent_3000')
+
+my_agent = MyAgent(alpha=0.2, epsilon=0.8)
+
+train(my_agent, 3000)
+save(my_agent, 'MyAgent_3000')
+
 train_and_plot(
 agent=my_agent,
 validation_agent=random_agent,
@@ -26,12 +33,11 @@ iterations=50,
 trainings=100,
 validations=1000)
 
-my_agent = MyAgent(alpha=0.2, epsilon=0.8)
 
-#my_agent = load('MyAgent_3000')
-#my_agent.learning = False
+my_agent = load('MyAgent_3000')
+my_agent.learning = False
  
-#start(player_x=my_agent)
+start(player_x=my_agent)
 
 validation_agent = RandomAgent()
 
