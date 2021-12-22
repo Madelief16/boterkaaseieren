@@ -15,6 +15,14 @@ class MyAgent(MLAgent):
     
 print("1: 2 spelers \n 2: speel tegen een getrainde computer \n 3: speel tegen een getrainde AI \n 4: train een AI en kijk hoe goed die het doet \n Kies wat je wilt spelen:")
 choice = input()
+
+if choice == '1':
+  start()
+
+if choice == '2':
+if choice == '3':
+if choice == '4':
+  
     
 random.seed(1)
 my_agent = MyAgent()
