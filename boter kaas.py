@@ -14,7 +14,7 @@ class MyAgent(MLAgent):
         return reward
     
 random.seed(1)
-my_agent = MyAgent(alpha=0.8, epsilon=0.2)
+my_agent = MyAgent()
    
 random_agent = RandomAgent()
 #train(my_agent, 3000)
@@ -25,6 +25,8 @@ validation_agent=random_agent,
 iterations=50,
 trainings=100,
 validations=1000)
+
+my_agent = MyAgent(alpha=0.2, epsilon=0.8)
 
 #my_agent = load('MyAgent_3000')
 #my_agent.learning = False
