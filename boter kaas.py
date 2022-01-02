@@ -22,14 +22,12 @@ if choice == '1':
     
     
 if choice == '2':
-     print("Tegenover welke agent zou je willen spelen? Op het moment dat je tegen de agent van dit programma wil spelen, vul in: agent1")
-     play_agent = input()
-
-     my_agent = load('playagent')
-     my_agent.learning = False
-     start(player_x=my_agent)
-
-  
+    #print("Tegenover welke agent zou je willen spelen? Op het moment dat je tegen de agent van dit programma wil spelen, vul in: agent1")
+   train(my_agent, 3000)
+    save(my_agent, 'MyAgent_3000')
+    my_agent = load('MyAgent_3000')
+    my_agent.learning = False
+    start(player_x=my_agent)
   
 if choice == '3':
     start()
