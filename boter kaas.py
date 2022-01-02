@@ -23,8 +23,9 @@ if choice == '1':
     
 if choice == '2':
     #print("Tegenover welke agent zou je willen spelen? Op het moment dat je tegen de agent van dit programma wil spelen, vul in: agent1")
-   train(my_agent, 3000)
-    save(my_agent, 'MyAgent_3000')
+ #  train(my_agent, 3000)
+    #save(my_agent, 'MyAgent_3000')
+
     my_agent = load('MyAgent_3000')
     my_agent.learning = False
     start(player_x=my_agent)
@@ -37,24 +38,24 @@ if choice == '4':
     name = input()
     print("Wil je dat jouw agent x of o is? (x begint altijd)")
     symbol = input()
-
-    my_agent = load(name)
+    
+    train(my_agent, 10000)
+    save(my_agent, 'MyAgent_noBeat')
+    my_agent = load('MyAgent_noBeat')
     my_agent.learning = False
-
-  
-    if symbol == "x" or symbol == "X":
-    validation_result = validate(agent_x=my_agent, agent_o=validation_agent, iterations=100)
-
-    if symbol == "o" or symbol == "O":
+    
     validation_result = validate(agent_o=my_agent, agent_x=validation_agent, iterations=100)
    
     plot_validation(validation_result)
  
- #validation_agent = RandomAgent()
+    validation_agent = RandomAgent()
   
- 
-  #train(my_agent, 3000)
-  #save(my_agent, 'MyAgent_3000')
+  #  if symbol == "x" or symbol == "X":
+   # validation_result = validate(agent_x=my_agent, agent_o=validation_agent, iterations=100)
+
+    #if symbol == "o" or symbol == "O":
+
+
  
 random.seed(1)
 my_agent = MyAgent()
