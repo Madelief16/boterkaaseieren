@@ -17,9 +17,8 @@ print("1: train de computer \n 2: speel tegen een getrainde computer \n 3: je ka
 choice = input()
 
 if choice == '1':
-    my_agent = MyAgent()
-    print("Wat vind jij een mooie naam voor je agent?")
-    name = input()
+    train(my_agent, 3000)
+    save(my_agent, 'MyAgent_3000')
     
     
 if choice == '2':
@@ -36,13 +35,28 @@ if choice == '3':
     start()
     
 if choice == '4':
-  random_agent = RandomAgent() 
+    print("Hoe heet de agent")
+    name = input()
+    print("Wil je dat jouw agent x of o is? (x begint altijd)")
+    symbol = input()
+
+    my_agent = load(name)
+    my_agent.learning = False
+
   
+    if symbol == "x" or symbol == "X":
+    validation_result = validate(agent_x=my_agent, agent_o=validation_agent, iterations=100)
+
+    if symbol == "o" or symbol == "O":
+    validation_result = validate(agent_o=my_agent, agent_x=validation_agent, iterations=100)
+   
+    plot_validation(validation_result)
+ 
+ #validation_agent = RandomAgent()
   
-  train(my_agent, 3000)
-  save(my_agent, 'MyAgent_3000')
  
- 
+  #train(my_agent, 3000)
+  #save(my_agent, 'MyAgent_3000')
  
 random.seed(1)
 my_agent = MyAgent()
@@ -55,15 +69,11 @@ my_agent = MyAgent(alpha=0.2, epsilon=0.8)
 train_and_plot(
 agent=my_agent,
 validation_agent=random_agent,
-iterations=50,
+iterations=30,
 trainings=100,
 validations=1000)
 
 
 
-
-validation_agent = RandomAgent()
-
-validation_result = validate(agent_x=my_agent, agent_o=validation_agent, iterations=100)
+# validation_result = validate(agent_x=my_agent, agent_o=validation_agent, iterations=100)
  
-plot_validation(validation_result)
