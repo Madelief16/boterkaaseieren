@@ -13,7 +13,7 @@ class MyAgent(MLAgent):
             reward = 0
         return reward
     
-print("1: train de computer \n 2: speel tegen een getrainde computer \n 3: je kan tegen ander persoon \n 4:kijk hoe goed die het doet \n Kies wat je wilt spelen:")
+print("1: train de computer \n 2: speel tegen een getrainde computer \n 3: je kan tegen ander persoon \n 4:kijk hoe goed die het doet \n 5: Wat zijn hyperparameters? \n Kies wat je wilt spelen:")
 choice = input()
 
 if choice == '1':
@@ -49,6 +49,9 @@ if choice == '4':
     plot_validation(validation_result)
  
     validation_agent = RandomAgent()
+    
+if choice == '5':
+    print("Bij machine learning is een hyperparameter een parameter waarvan de waarde wordt gebruikt om het leerproces te regelen. Daarentegen worden de waarden van andere parameters (meestal knoopgewichten) afgeleid via training.")
   
   #  if symbol == "x" or symbol == "X":
    # validation_result = validate(agent_x=my_agent, agent_o=validation_agent, iterations=100)
@@ -57,20 +60,14 @@ if choice == '4':
 
 
  
-random.seed(1)
-my_agent = MyAgent()
+    
+    
+#random.seed(1)
+#my_agent = MyAgent()
    
-random_agent = RandomAgent()
+#random_agent = RandomAgent()
 
-my_agent = MyAgent(alpha=0.2, epsilon=0.8)
-
-
-train_and_plot(
-agent=my_agent,
-validation_agent=random_agent,
-iterations=30,
-trainings=100,
-validations=1000)
+#my_agent = MyAgent(alpha=0.2, epsilon=0.8)
 
 
 
